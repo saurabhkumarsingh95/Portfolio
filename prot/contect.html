@@ -1,0 +1,201 @@
+<!-- Contact Me Section with AI + 3D Animation -->
+<section class="contact-section" id="contact">
+    <h1 class="title">Contact Me</h1>
+    <p class="subtitle">Let's Connect With AI Powered Style ✨</p>
+
+    <div class="contact-container">
+
+        <a href="mailto:mrsaurabhkumar9577@gmail.com" class="card email">
+            <div class="glow"></div>
+            <i class="fas fa-envelope"></i>
+            <h2>Email</h2>
+            <p>yourmail@gmail.com</p>
+        </a>
+
+        <a href="https://wa.me/8877739657" target="_blank" class="card whatsapp">
+            <div class="glow"></div>
+            <i class="fab fa-whatsapp"></i>
+            <h2>WhatsApp</h2>
+            <p>Chat Now</p>
+        </a>
+
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="card linkedin">
+            <div class="glow"></div>
+            <i class="fab fa-linkedin"></i>
+            <h2>LinkedIn</h2>
+            <p>Professional Profile</p>
+        </a>
+
+        <a href="https://github.com/yourgithub" target="_blank" class="card github">
+            <div class="glow"></div>
+            <i class="fab fa-github"></i>
+            <h2>GitHub</h2>
+            <p>My Projects</p>
+        </a>
+
+        <a href="https://instagram.com/yourinstagram" target="_blank" class="card instagram">
+            <div class="glow"></div>
+            <i class="fab fa-instagram"></i>
+            <h2>Instagram</h2>
+            <p>Follow Me</p>
+        </a>
+
+    </div>
+</section>
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#050816;
+}
+
+/* Section */
+.contact-section{
+    min-height:100vh;
+    padding:60px 20px;
+    text-align:center;
+    background:linear-gradient(135deg,#050816,#0b1026);
+    overflow:hidden;
+}
+
+/* Title */
+.title{
+    font-size:55px;
+    color:#fff;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    margin-bottom:10px;
+    animation:float 3s ease-in-out infinite;
+}
+
+.subtitle{
+    color:#9ca3af;
+    margin-bottom:50px;
+    font-size:18px;
+}
+
+/* Container */
+.contact-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    perspective:1000px;
+}
+
+/* Card */
+.card{
+    position:relative;
+    width:250px;
+    height:260px;
+    padding:25px;
+    border-radius:25px;
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.15);
+    overflow:hidden;
+    transition:0.5s;
+    transform-style:preserve-3d;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* 3D Hover */
+.card:hover{
+    transform:rotateY(15deg) rotateX(10deg) scale(1.08);
+    box-shadow:0 20px 40px rgba(0,255,255,0.4);
+}
+
+/* Glow */
+.glow{
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:rgba(0,255,255,0.3);
+    border-radius:50%;
+    top:-60px;
+    right:-60px;
+    filter:blur(50px);
+    animation:moveGlow 5s linear infinite;
+}
+
+.card i{
+    font-size:65px;
+    margin-top:20px;
+    margin-bottom:20px;
+    z-index:2;
+    position:relative;
+}
+
+.card h2{
+    font-size:28px;
+    margin-bottom:10px;
+    z-index:2;
+    position:relative;
+}
+
+.card p{
+    font-size:16px;
+    color:#d1d5db;
+    z-index:2;
+    position:relative;
+}
+
+/* Different Colors */
+.email i{ color:#ff4d4d; }
+.whatsapp i{ color:#25D366; }
+.linkedin i{ color:#0A66C2; }
+.github i{ color:#ffffff; }
+.instagram i{
+    color:#ff00cc;
+}
+
+/* Animation */
+@keyframes moveGlow{
+    0%{
+        transform:translate(0,0);
+    }
+    50%{
+        transform:translate(-30px,30px);
+    }
+    100%{
+        transform:translate(0,0);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .title{
+        font-size:38px;
+    }
+
+    .card{
+        width:90%;
+    }
+}
+
+</style>

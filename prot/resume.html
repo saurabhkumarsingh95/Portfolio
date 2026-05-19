@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>3D Resume Book</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#030712;
+    overflow-x:hidden;
+    color:white;
+}
+
+/* Animated Background */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left,#00ffff33,transparent 30%),
+    radial-gradient(circle at bottom right,#ff00ff33,transparent 30%),
+    linear-gradient(135deg,#030712,#0b1020,#030712);
+    z-index:-2;
+}
+
+/* Floating AI Lights */
+
+.lights{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.lights span{
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:#00ffff;
+    border-radius:50%;
+    animation:float 15s linear infinite;
+    opacity:.5;
+}
+
+.lights span:nth-child(1){left:10%;animation-duration:12s;}
+.lights span:nth-child(2){left:30%;animation-duration:16s;}
+.lights span:nth-child(3){left:50%;animation-duration:10s;}
+.lights span:nth-child(4){left:70%;animation-duration:18s;}
+.lights span:nth-child(5){left:90%;animation-duration:14s;}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) scale(0);
+    }
+    100%{
+        transform:translateY(-10vh) scale(1.5);
+    }
+}
+
+/* Header */
+
+header{
+    text-align:center;
+    padding:50px 20px;
+}
+
+header h1{
+    font-size:4rem;
+    background:linear-gradient(to right,#00ffff,#ff00ff);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:glow 3s infinite alternate;
+}
+
+header p{
+    color:#d1d5ff;
+    margin-top:10px;
+    font-size:1.1rem;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #00ffff;
+    }
+    to{
+        text-shadow:0 0 30px #ff00ff;
+    }
+}
+
+/* Book Container */
+
+.book-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px 80px;
+}
+
+/* 3D Resume Book */
+
+.book{
+    width:900px;
+    max-width:100%;
+    min-height:550px;
+    background:rgba(255,255,255,0.05);
+    border-radius:25px;
+    display:flex;
+    overflow:hidden;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:0.6s;
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+.book:hover{
+    transform:rotateY(-8deg) rotateX(5deg) scale(1.02);
+}
+
+/* Left Page */
+
+.left-page{
+    width:40%;
+    background:linear-gradient(135deg,#00ffff22,#ff00ff22);
+    padding:40px 25px;
+    text-align:center;
+    border-right:2px solid rgba(255,255,255,0.1);
+}
+
+/* Resume Image */
+
+.profile-box{
+    position:relative;
+    width:220px;
+    height:220px;
+    margin:auto;
+    border-radius:50%;
+    padding:6px;
+    background:linear-gradient(45deg,#00ffff,#ff00ff);
+    animation:borderRotate 4s linear infinite;
+}
+
+.profile-box img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #0b1020;
+}
+
+@keyframes borderRotate{
+    0%{
+        filter:hue-rotate(0deg);
+    }
+    100%{
+        filter:hue-rotate(360deg);
+    }
+}
+
+.left-page h2{
+    margin-top:25px;
+    font-size:2rem;
+}
+
+.left-page h4{
+    margin-top:10px;
+    color:#00ffff;
+    font-weight:500;
+}
+
+.ai-tag{
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 18px;
+    border-radius:30px;
+    background:linear-gradient(to right,#00ffff,#ff00ff);
+    font-size:.9rem;
+    font-weight:600;
+}
+
+/* Right Page */
+
+.right-page{
+    width:60%;
+    padding:45px;
+}
+
+.section{
+    margin-bottom:28px;
+}
+
+.section h3{
+    font-size:1.5rem;
+    margin-bottom:12px;
+    color:#00ffff;
+}
+
+.section p{
+    color:#d1d5ff;
+    line-height:1.8;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:10px;
+}
+
+.skill{
+    padding:10px 16px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.4s;
+}
+
+.skill:hover{
+    transform:translateY(-5px);
+    background:linear-gradient(to right,#00ffff,#ff00ff);
+}
+
+/* Download Button */
+
+.download{
+    margin-top:35px;
+}
+
+.download a{
+    text-decoration:none;
+    padding:15px 28px;
+    border-radius:14px;
+    color:white;
+    font-weight:600;
+    background:linear-gradient(to right,#00ffff,#0077ff);
+    transition:0.4s;
+    display:inline-block;
+}
+
+.download a:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(0,255,255,0.3);
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.book{
+    flex-direction:column;
+}
+
+.left-page,
+.right-page{
+    width:100%;
+}
+
+.left-page{
+    border-right:none;
+    border-bottom:2px solid rgba(255,255,255,0.1);
+}
+
+header h1{
+    font-size:2.5rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="lights">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<header>
+    <h1>My Resume Book</h1>
+    <p>Advanced 3D Animated Resume Portfolio</p>
+</header>
+
+<div class="book-container">
+
+    <div class="book">
+
+        <!-- Left Page -->
+
+        <div class="left-page">
+
+            <div class="profile-box">
+                <img src="image.jpeg" alt="">
+            </div>
+
+            <h2>Saurabh Kumar</h2>
+
+            <h4>Full Stack Web Developer</h4>
+
+            <div class="ai-tag">
+                 Full Stack Portfolio
+            </div>
+
+        </div>
+
+        <!-- Right Page -->
+
+        <div class="right-page">
+
+            <div class="section">
+                <h3>About Me</h3>
+
+                <p>
+                    Passionate Full Stack Developer with strong
+                    knowledge of HTML, CSS, JavaScript and AI based
+                    modern web design. Experienced in creating futuristic
+                    animated websites and responsive UI systems.
+                </p>
+            </div>
+
+            <div class="section">
+                <h3>Education</h3>
+
+                <p>
+                    10th - BSEB (75%) <br>
+                    12th - BSEB (65%) <br>
+                    B.Tech - CGPA 7.5
+                </p>
+            </div>
+
+            <div class="section">
+                <h3>Skills</h3>
+
+                <div class="skills">
+
+                    <div class="skill">HTML</div>
+                    <div class="skill">CSS</div>
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">React Js</div> 
+                    <div class="skill">Type Script</div>
+                    <div class="skill">Node Js</div>
+                    <div class="skill">Express Js</div>
+                    <div class="skill">Mongdb</div>
+                    <div class="skill">Authentication</div>
+                    <div class="skill">WebSockets</div>
+                    <div class="skill">API</div>
+                    <div class="skill">AI Design</div>
+                    <div class="skill">UI/UX</div>
+                    <div class="skill">3D Animation</div>
+
+                </div>
+
+            </div>
+
+            <div class="download">
+                <a href="resume.pdf" download>
+                    Download Resume PDF
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

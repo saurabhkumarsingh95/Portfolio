@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Advanced Project Showcase</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left,#00f7ff44,transparent 30%),
+    radial-gradient(circle at bottom right,#ff00ff44,transparent 30%),
+    linear-gradient(120deg,#050816,#0b1026,#050816);
+    z-index:-2;
+}
+
+/* Floating Particles */
+
+.particles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.particles span{
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:#00ffff;
+    border-radius:50%;
+    animation:float 15s linear infinite;
+    opacity:.5;
+}
+
+.particles span:nth-child(1){left:10%;animation-duration:12s;}
+.particles span:nth-child(2){left:25%;animation-duration:18s;}
+.particles span:nth-child(3){left:40%;animation-duration:10s;}
+.particles span:nth-child(4){left:60%;animation-duration:15s;}
+.particles span:nth-child(5){left:80%;animation-duration:20s;}
+.particles span:nth-child(6){left:90%;animation-duration:14s;}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) scale(0);
+    }
+    100%{
+        transform:translateY(-10vh) scale(1.5);
+    }
+}
+
+/* Header */
+
+header{
+    text-align:center;
+    padding:80px 20px 40px;
+}
+
+header h1{
+    font-size:4rem;
+    background:linear-gradient(to right,#00ffff,#ff00ff);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:glow 3s infinite alternate;
+}
+
+header p{
+    margin-top:15px;
+    color:#c9d1ff;
+    font-size:1.1rem;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #00ffff;
+    }
+    to{
+        text-shadow:0 0 30px #ff00ff;
+    }
+}
+
+/* Project Section */
+
+.projects{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:40px;
+    padding-bottom:80px;
+}
+
+/* 3D Card */
+
+.project-card{
+    position:relative;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    overflow:hidden;
+    transform-style:preserve-3d;
+    transition:0.6s;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.project-card:hover{
+    transform:rotateY(10deg) rotateX(10deg) scale(1.03);
+    box-shadow:0 20px 50px rgba(0,255,255,0.4);
+}
+
+/* Image */
+
+.project-image{
+    position:relative;
+    overflow:hidden;
+}
+
+.project-image img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.project-card:hover img{
+    transform:scale(1.1);
+}
+
+/* AI Badge */
+
+.ai-badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:linear-gradient(45deg,#00ffff,#ff00ff);
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:.8rem;
+    font-weight:600;
+    color:white;
+    box-shadow:0 0 15px #00ffff;
+}
+
+/* Content */
+
+.content{
+    padding:25px;
+}
+
+.content h2{
+    font-size:1.8rem;
+    margin-bottom:10px;
+}
+
+.content p{
+    color:#cfd3ff;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+/* Buttons */
+
+.buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    flex:1;
+    text-align:center;
+    padding:12px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.live{
+    background:linear-gradient(to right,#00ffff,#0077ff);
+}
+
+.code{
+    background:linear-gradient(to right,#ff00ff,#ff0066);
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(255,255,255,0.2);
+}
+
+/* AI Animated Border */
+
+.project-card::before{
+    content:'';
+    position:absolute;
+    inset:-2px;
+    border-radius:25px;
+    background:linear-gradient(
+    45deg,
+    #00ffff,
+    #ff00ff,
+    #00ffff,
+    #ff00ff
+    );
+    z-index:-1;
+    animation:borderRotate 4s linear infinite;
+}
+
+@keyframes borderRotate{
+    0%{
+        filter:hue-rotate(0deg);
+    }
+    100%{
+        filter:hue-rotate(360deg);
+    }
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+header h1{
+    font-size:2.5rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<header>
+    <h1>My Full Stack Web projects</h1>
+    <p>Advanced 3D Animated Project Showcase Page</p>
+</header>
+
+<section class="projects">
+
+    <!-- Project 1 -->
+
+    <div class="project-card">
+
+        <div class="project-image">
+            <img src="/upsc1.jpeg" alt="">
+            <div class="ai-badge">Education</div>
+        </div>
+
+        <div class="content">
+            <h2>upscadda25</h2>
+
+            <p>
+                  UPSCAdda25 is an educational platform for UPSC and government exam preparation, offering notes, current affairs, and study materials in a simple, exam-focused format.
+            </p>
+
+            <div class="buttons">
+                <a href="https://upscadda25.netlify.app/" class="btn live">Live Project</a>
+                <a href="#" class="btn code">Source Code</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Project 2 -->
+
+    <div class="project-card">
+
+        <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="">
+            <div class="ai-badge">3D Animation</div>
+        </div>
+
+        <div class="content">
+            <h2>Solar System Explorer</h2>
+
+            <p>
+                Interactive space website with 3D planet animations,
+                weather updates, NASA links and world map section.
+            </p>
+
+            <div class="buttons">
+                <a href="#" class="btn live">Live Project</a>
+                <a href="#" class="btn code">Source Code</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Project 3 -->
+
+    <div class="project-card">
+
+        <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="">
+            <div class="ai-badge">Smart UI</div>
+        </div>
+
+        <div class="content">
+            <h2>News Hub</h2>
+
+            <p>
+                Modern AI-based news platform with animations,
+                category filters and responsive futuristic UI design.
+            </p>
+
+            <div class="buttons">
+                <a href="#" class="btn live">Live Project</a>
+                <a href="#" class="btn code">Source Code</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+<!-- ================= EXTRA 9 PROJECTS ADD BELOW PROJECT 3 ================= -->
+
+<!-- Project 4 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="ai-badge">AI Assistant</div>
+    </div>
+
+    <div class="content">
+        <h2>AI Chatbot</h2>
+
+        <p>
+            Smart AI chatbot website with futuristic interface,
+            animations and voice assistant support.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn live">Live Project</a>
+            <a href="#" class="btn code">Source Code</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Project 5 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="ai-badge">Cyber Security</div>
+    </div>
+
+    <div class="content">
+        <h2>Security Dashboard</h2>
+
+        <p>
+            Advanced cyber security dashboard with AI analytics,
+            neon effects and 3D animations.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn live">Live Project</a>
+            <a href="#" class="btn code">Source Code</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Project 6 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="ai-badge">Space Tech</div>
+    </div>
+
+    <div class="content">
+        <h2>Galaxy Website</h2>
+
+        <p>
+            Space technology platform with galaxy animations,
+            3D planets and glowing UI effects.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn live">Live Project</a>
+            <a href="#" class="btn code">Source Code</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Project 7 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="ai-badge">Portfolio</div>
+    </div>
+
+    <div class="content">
+        <h2>Portfolio Website</h2>
+
+        <p>
+            Modern animated portfolio with glassmorphism,
+            hover effects and responsive layout.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn live">Live Project</a>
+            <a href="#" class="btn code">Source Code</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Project 8 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="ai-badge">Gaming</div>
+    </div>
+
+    <div class="content">
+        <h2>Gaming Zone</h2>
+
+        <p>
+            Gaming website with 3D hover effects,
+            futuristic cards and animated backgrounds.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn live">Live Project</a>
+            <a href="#" class="btn code">Source Code</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Project 9 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="ai-badge">Education</div>
+    </div>
+
+    <div class="content">
+        <h2>Online Learning</h2>
+
+        <p>
+            E-learning website with AI course suggestions,
+            animated UI and live classes section.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn live">Live Project</a>
+            <a href="#" class="btn code">Source Code</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Project 10 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="ai-badge">Robot AI</div>
+    </div>
+
+    <div class="content">
+        <h2>AI Robot UI</h2>
+
+        <p>
+            Robot based AI interface with glowing effects,
+            animations and smart futuristic design.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn live">Live Project</a>
+            <a href="#" class="btn code">Source Code</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Project 11 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="ai-badge">Green Energy</div>
+    </div>
+
+    <div class="content">
+        <h2>Energy Dashboard</h2>
+
+        <p>
+            Renewable energy analytics website with charts,
+            animations and futuristic design.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn live">Live Project</a>
+            <a href="#" class="btn code">Source Code</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Project 12 -->
+
+<div class="project-card">
+
+    <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="ai-badge">Metaverse</div>
+    </div>
+
+    <div class="content">
+        <h2>Metaverse World</h2>
+
+        <p>
+            Advanced metaverse concept website with 3D world,
+            AI effects and immersive animations.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn live">Live Project</a>
+            <a href="#" class="btn code">Source Code</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= EXTRA PROJECTS END ================= -->
+
+
+</section>
+
+</body>
+</html>
